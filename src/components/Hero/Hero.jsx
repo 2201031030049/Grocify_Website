@@ -7,7 +7,7 @@ const Hero = () => {
     <section>
         <div className='max-w-350 min-h-screen mx-auto px-10 flex md:flex-row flex-col items-center '>
             {/* Hero Content */}
-            <div className='pt-10 flex-1'>
+            <div className='md:pt-10 pt-30 flex-1'>
                 <span className='bg-orange-100 text-orange-500 text-lg px-5 py-2 rounded-full '>Export Best Quality...</span>
                 <h1 className='md:text-7xl/20 text-5xl/14 font-bold mt-4'>
                     Tasty Organic <span className='text-orange-500'>Fruits</span> & <span className='text-orange-500'>Veggies</span> <br /> In Your City

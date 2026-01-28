@@ -1,4 +1,4 @@
-import React ,{ useState } from 'react'
+import React ,{ useEffect, useState } from 'react'
 import { GoHeartFill } from 'react-icons/go'
 import { HiShoppingBag } from 'react-icons/hi'
 import { IoSearch } from 'react-icons/io5'
@@ -7,13 +7,29 @@ import { TbMenu2, TbMenu3 } from 'react-icons/tb'
 const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
     const toggleMenu = () => {
       setShowMenu(!showMenu)
     }
 
+    useEffect(() => {
+
+      const handleScroll = () => {
+
+        setIsScrolled(window.scrollY > 10)
+
+      }
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => 
+        window.removeEventListener('scroll', handleScroll);
+
+    }, [])
+
   return (
-    <header className='w-full bg-white shadow-md md:fixed md:top-0 md:right-0 md:left-0 z-50'>
+    <header className={`bg-white fixed top-0 left-0 right-0 z-50 ${isScrolled ? 'shadow-lg' : ''} transition-shadow duration-300`}>
       <nav className='flex justify-between max-w-350 mx-auto px-10 md:h-[14vh] h-[12vh] items-center'>
           {/* Logo */}
         <a href="#" className='text-3xl font-bold'>
@@ -55,7 +71,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <ul className={`flex flex-col gap-y-12 bg-orange-500/20 backdrop-blur-xl rounded-xl p-10 items-center gap-x-15 md:hidden absolute top-30 -left-full transform -translate-x-1/2 transition-all duration-500 ${showMenu ? 'left-1/2' : '-left-full'}`}>
+        <ul className={`flex flex-col gap-y-12 bg-orange-500/20 backdrop-blur-xl rounded-xl shadow-xl p-10 items-center gap-x-15 md:hidden absolute top-30 -left-full transform -translate-x-1/2 transition-all duration-500 ${showMenu ? 'left-1/2' : '-left-full'}`}>
           <li><a href="#" className='font-semibold tracking-wider text-orange-500'>Home</a></li>
           <li><a href="#" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>About us</a></li>
           <li><a href="#" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Process</a></li>
