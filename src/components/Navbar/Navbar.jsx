@@ -3,6 +3,7 @@ import { GoHeartFill } from 'react-icons/go'
 import { HiShoppingBag } from 'react-icons/hi'
 import { IoSearch } from 'react-icons/io5'
 import { TbMenu2, TbMenu3 } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -32,16 +33,16 @@ const Navbar = () => {
     <header className={`bg-white fixed top-0 left-0 right-0 z-50 ${isScrolled ? 'shadow-lg' : ''} transition-shadow duration-300`}>
       <nav className='flex justify-between max-w-350 mx-auto px-10 md:h-[14vh] h-[12vh] items-center'>
           {/* Logo */}
-        <a href="#" className='text-3xl font-bold'>
+        <Link to="/" className='text-3xl font-bold'>
           Gr<span className='text-orange-500 uppercase'>o</span>cify
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className='md:flex items-center gap-x-15 hidden'>
-          <li><a href="#" className='font-semibold tracking-wider text-orange-500'>Home</a></li>
-          <li><a href="#" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>About us</a></li>
-          <li><a href="#" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Process</a></li>
-          <li><a href="#" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Contact us</a></li>
+          <li><Link to="/" className='font-semibold tracking-wider text-orange-500'>Home</Link></li>
+          <li><Link to="/about" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>About us</Link></li>
+          <li><Link to="/process" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Process</Link></li>
+          <li><Link to="/contact" className='font-semibold tracking-wider text-zinc-800 hover:text-orange-500'>Contact us</Link></li>
         </ul>
 
         {/* Nav Action */}
